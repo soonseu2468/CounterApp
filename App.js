@@ -3,7 +3,8 @@ import {
     View,
     Text,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert
 } from "react-native";
 import { createStore } from 'redux'
 import CounterApp from './src/CounterApp'
@@ -29,7 +30,16 @@ const reducer = (state = initialState, action) => {
         case 'DECREASE_COUNTER':
             return { counter: state.counter - 1 }
         case 'ALERT_COUNTER':
-            return alert(state.counter)
+            Alert.alert(
+                'Congratulation',
+                'You have clicked '+state.counter+' times',
+                [
+                  {text: 'OK', onPress: () => console.log('OK Pressed')},
+                ],
+                {cancelable: false},
+              );
+  
+            
 
     }
     return state

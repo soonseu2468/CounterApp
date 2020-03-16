@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import {
     View,
-    Text,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    Text
 } from "react-native";
-import CounterApp from './CounterApp'
 import TimerCountdown from './TimerCountdown'
 import { connect } from 'react-redux'
 
@@ -15,8 +14,13 @@ class Timer extends Component {
         return (
             <View style={styles.container}>
                 <View>
+
+                    {/* <TouchableOpacity onPress={() => this.props.resetCounter()}>
+                        <Text style={styles.Button}>Reset</Text>
+                    </TouchableOpacity> */}
+
                     <TimerCountdown
-                        initialMilliseconds={100 *60}
+                        initialMilliseconds={100 * 60}
                         onTick={(milliseconds) => console.log("tick", milliseconds)}
                         onExpire={() => this.props.alertCounter()}
                         formatMilliseconds={(milliseconds) => {
@@ -33,6 +37,7 @@ class Timer extends Component {
                         allowFontScaling={true}
                         style={{ fontSize: 20 }}
                     />
+
                 </View>
             </View>
         )
@@ -52,6 +57,7 @@ const styles = StyleSheet.create({
 function mapDispatchToProps(dispatch) {
     return {
         alertCounter: () => dispatch({ type: 'ALERT_COUNTER' }),
+        reserCounter: () => dispatch({ type: 'RESET_COUNTER' }),
 
     }
 }

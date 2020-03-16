@@ -3,20 +3,17 @@ import {
     View,
     Text,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
 } from "react-native";
 import { connect } from 'react-redux'
 class CounterApp extends Component {
-    render() { 
+    render() {
         return (
             <View style={styles.container}>
-                <View style={{ flexDirection: 'row', width: 200, justifyContent: 'space-around' }}>
+                <View>
+                    <Text style={{ textAlign: "center", fontSize: 30, justifyContent: "center" }}>{this.props.counter}</Text>
                     <TouchableOpacity onPress={() => this.props.increaseCounter()}>
-                        <Text style={{ fontSize: 20 }}>Increase</Text>
-                    </TouchableOpacity>
-                    <Text style={{ fontSize: 20 }}>{this.props.counter}</Text>
-                    <TouchableOpacity onPress={() => this.props.decreaseCounter()}>
-                        <Text style={{ fontSize: 20 }}>Decrease</Text>
+                        <Text style={styles.Button}>+</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -45,5 +42,15 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    Button: {
+        textAlignVertical: "center",
+        textAlign: "center",
+        backgroundColor: "red",
+        fontSize: 100,
+        width: 150,
+        height: 150,
+        borderRadius: 500 / 2
+
     }
 });

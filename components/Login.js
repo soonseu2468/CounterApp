@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
   loginText: {
     color: '#3740FE',
-    marginTop: 25,
+    marginTop: 10,
     textAlign: 'center'
   },
   preloader: {

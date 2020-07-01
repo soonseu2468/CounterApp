@@ -21,7 +21,6 @@ export default class ForgotPassword extends Component {
     }
 
     sendTAC = () => {
-        var appVerifier = window.recaptchaVerifier;
         if (this.state.phone === '') {
             Alert.alert('Enter phone number to send!')
         } else {
@@ -30,7 +29,7 @@ export default class ForgotPassword extends Component {
             })
             firebase
                 .auth()
-                .signInWithPhoneNumber(this.state.phone, appVerifier)
+                .signInWithPhoneNumber(this.state.phone)
                 .then((res) => {
                     console.log('TAC sent successfully!')
                     Alert.alert('TAC sent successfully!')
